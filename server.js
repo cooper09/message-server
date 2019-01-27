@@ -5,6 +5,8 @@ let monk = require('monk');
 let MongoClient = require('mongodb').MongoClient;
 let mongo = require('mongodb');
 
+let socket = require('socket.io')
+
 let db = monk('mongodb://cooper@ds063240.mongolab.com:63240/polydata');
 
 var port = process.env.PORT || 7250;
@@ -25,6 +27,16 @@ app.use( function (req,res, next ){
 app.use(bodyParser.urlencoded({
     extension: true
 }))
+
+let io = socket(server);
+io.on('connection', (socket) =>{
+    console.log("made socket connection socket id: ", socket.id );
+
+    setInterval(function(){ 
+        io.sockets.emit("message", "This is a message");
+    }, 10000);
+
+});
 
 app.use(bodyParser.json());
 
