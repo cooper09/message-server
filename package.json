@@ -1,0 +1,19 @@
+{
+  "name": "message-server",
+  "version": "1.0.0",
+  "description": "simple message server for testing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cooper s",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bson": "^4.0.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "monk": "^6.0.6",
+    "request": "^2.88.0"
+  }
+}
