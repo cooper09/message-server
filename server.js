@@ -31,10 +31,15 @@ app.use(bodyParser.urlencoded({
 let io = socket(server);
 io.on('connection', (socket) =>{
     console.log("made socket connection socket id: ", socket.id );
+    
+let i = 0;
 
-    setInterval(function(){ 
+   let messenger =  setInterval(function() { 
         io.sockets.emit("message", "This is a message");
+        ++i;
     }, 10000);
+
+    //clearInterval(messenger);
 
 });
 
